@@ -1,5 +1,6 @@
 package org.quarkus.restclient;
 
+import org.eclipse.microprofile.rest.client.annotation.RegisterProvider;
 import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 
 import javax.enterprise.context.ApplicationScoped;
@@ -11,6 +12,7 @@ import javax.ws.rs.core.MediaType;
 @Path("/")
 @ApplicationScoped
 @RegisterRestClient(configKey = "test-filter")
+@RegisterProvider(LoggingFilter.class)
 public interface RestClient {
 
     @GET
